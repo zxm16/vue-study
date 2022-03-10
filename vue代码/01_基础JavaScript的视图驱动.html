@@ -1,0 +1,28 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = ()=>{
+            let h1 = document.getElementsByTagName("h1")[0];
+            let oBtn = document.getElementById("btn");
+            let oBtn01 = document.getElementById("btn01");
+            let i = 0
+            oBtn.onclick = () =>{
+                i++;
+                h1.innerHTML = i;
+            }
+            oBtn01.onclick = () =>{
+                i--;
+                h1.innerHTML = i;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>0</h1>
+    <input type="button" id="btn" value="按我加一">
+    <input type="button" id="btn01" value="按我减一">
+</body>
+</html>
