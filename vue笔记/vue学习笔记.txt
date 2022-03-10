@@ -1,0 +1,12 @@
+2022.03.11
+1.是一套构建用户界面的渐进式框架.
+2.vue的核心是只关注视图层.
+3.能够为复杂的单页面提供驱动.
+4.vue是MVVM框架，他是渐进框架（渐进框架：对于初学者更友好的框架，React或者angluar都得了解其语法结构但vue不需要）
+  它是轻量的级的，有很多根据Vue拓展的独立功能或库.
+MVVM的意思：view（DOM）-->ViewModel-->Model(plain JavaScript Object)
+					  <--ViewModel<--		
+vue关注的对象是view和model
+5.关于数据驱动视图的问题：
+  首先看原生的JavaScript代码（vue学习/01_基础JavaScript的视图驱动.html）
+  再看关于vue的代码块（vue学习/02_基于vue的数据驱动.html）
