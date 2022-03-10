@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.js"></script>
+    <script>
+        window.onload = () =>{
+            new Vue({
+                // 挂载点
+                el:'#app',
+                // 数据
+                data:{
+                    a:0
+                },
+                // 方法
+                methods:{
+                    add() {
+                        this.a++;
+                    },
+                    minus() {
+                        this.a--;
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<div id="app">
+    <h1>{{a}}</h1>
+    <button @click="add">按我加一</button>
+    <button @click="minus">按我减一</button>
+</div>
+</body>
+</html>
