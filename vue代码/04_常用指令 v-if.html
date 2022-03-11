@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if</title>
+    <script src="vue1.js"></script>
+</head>
+<body>
+<div id="app">
+    <h2>{{boo}}</h2>
+    <p v-if="boo >= 0 && boo <= 5">5</p>
+    <p v-else-if="boo >= 6">20</p>
+<!--    当boo等于100时进行显示-->
+    <p v-if="boo === 100">我是第一行dom元素</p>
+    <button @click="add">按我加一</button>
+</div>
+<script>
+    var vue = new Vue({
+        el: '#app',
+        data:{
+            boo: 0
+        },
+        methods:{
+            add(){
+                this.boo++;
+            }
+        }
+    })
+</script>
+</body>
+</html>
