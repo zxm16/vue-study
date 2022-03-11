@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+  <script src="vue1.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{a > 100? 20 : 10}}
+<!--        双扩号中渲染的是a的属性值-->
+    </div>
+    <script>
+        alert(Vue);//查看是否引用vue文件成功
+        var vue = new Vue({
+            // el代表页面的挂载点，所有的vue的方法和属性都必须在对应的挂载根标签内部使用
+            el:'#app',
+            //数据管理中心，所有的vue的数据都在data对象中
+            data:{
+                a:100
+            },
+            // 对应vue中的事件方法
+            method:{
+
+            }
+        })
+    </script>
+</body>
+</html>
