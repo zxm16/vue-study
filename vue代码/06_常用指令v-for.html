@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常用指令v-show</title>
+    <script src="vue1.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(item,index) in arr" :key="index">{{index}}-{{item}}</li>
+<!--        item表示数组中的每一项-->
+    </ul>
+</div>
+<script>
+    var vue = new Vue({
+        el: '#app',
+        data:{
+            arr: [
+                'apple',
+                'orange',
+                'banana',
+                'pear'
+            ]
+        },
+        methods:{
+            add(){
+                this.boo++;
+            }
+        }
+    })
+</script>
+</body>
+</html>
