@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常用指v-cloak</title>
+    <script src="vue1.js"></script>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="app" v-cloak>
+    <p>{{a}}</p>
+</div>
+<script>
+    var vue = new Vue({
+        el: '#app',
+        data:{
+            a:'我是要渲染的指令v-cloak'
+        },
+    })
+</script>
+</body>
+</html>
