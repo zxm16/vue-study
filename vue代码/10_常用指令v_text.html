@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常用指令v_text</title>
+    <script src="vue1.js"></script>
+</head>
+<body>
+<div id="app">
+    <p v-text="a"></p>
+    <p>{{a}}</p>
+<!--    我们可以看到上面的两行代码效果一样所以-->
+<!--    双大括号和v-text表现的效果是一样的-->
+    <p v-html="a"></p>
+</div>
+<script>
+    var vue = new Vue({
+        el: '#app',
+        data:{
+            a:'我是要插值的内容'
+        },
+    })
+</script>
+</body>
+</html>
