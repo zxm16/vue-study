@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常用指v-on</title>
+    <script src="vue1.js"></script>
+</head>
+<body>
+<div id="app" v-cloak>
+    <h2 >{{a}}</h2>
+    <button @click="add(5)">按我加五</button>
+</div>
+<script>
+    var vue = new Vue({
+        el: '#app',
+        data:{
+            a:100
+        },
+        methods:{
+            add(num) {
+                this.a += num
+            }
+        }
+    })
+</script>
+</body>
+</html>
