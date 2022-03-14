@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常用指v-bind</title>
+    <style>
+        p{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+        .red{
+            background: red;
+        }
+        .pink{
+            background: pink;
+        }
+        .orange{
+            background: orange;
+        }
+    </style>
+    <script src="vue1.js"></script>
+</head>
+<body>
+<div id="app" v-cloak>
+    <div>
+        <p :class="{red:a ==5,pink:a == 10,orange:a == 15}">
+            {{a}}
+        </p>
+    </div>
+    <button @click="add">按我加一</button>
+    <button @click="minus">按我减一</button>
+</div>
+<script>
+    var vue = new Vue({
+        el: '#app',
+        data:{
+           a: 0
+        },
+        methods:{
+            add() {
+                this.a ++
+            },
+            minus() {
+                this.a --
+            }
+        }
+    })
+</script>
+</body>
+</html>
