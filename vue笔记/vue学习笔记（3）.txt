@@ -1,0 +1,53 @@
+3.9 v-bind
+	v-bind属性作用让普通的W3C属性具有动态属性
+	（1）使用动态属性之前，没有使用动态属性会将编译之前的属性·直接抛出
+	        <img v-bind:src="'+url+'.jpg" alt="">
+	        不使用动态属性会直接抛出，此时使用"v-bind："浏览器会加载之后的属性
+	        v-bind可以简写为：即"v-bind:src" === ":src"
+
+	（2）我们可以使用动态属性实现class类名的动态效果
+	//样式代码
+	<style>
+        p{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+        .red{
+            background: red;
+        }
+        .pink{
+            background: pink;
+        }
+        .orange{
+            background: orange;
+        }
+    </style>
+	//结构代码
+	<div id="app" v-cloak>
+	    <div>
+	        <p :class="{red:a ==5,pink:a == 10,orange:a == 15}">
+	        /*需要注意的是动态class需要使用{}来包裹，值可以为多个，值的参数是一个Boolean值*/
+	            {{a}}
+	        </p>
+	    </div>
+	    <button @click="add">按我加一</button>
+	    <button @click="minus">按我减一</button>
+	</div>
+
+	<script>
+	    var vue = new Vue({
+	        el: '#app',
+	        data:{
+	           a: 0
+	        },
+	        methods:{
+	            add() {
+	                this.a ++
+	            },
+	            minus() {
+	                this.a --
+	            }
+	        }
+	    })
+	</script>
