@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>微博发布框</title>
+    <script src="vue1.js"></script>
+    <style>
+        .warn{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="app" v-cloak>
+    <textarea v-model="content" cols="30" rows="10" placeholder="请输入你今天的心情。。。">{{}}</textarea>
+    <p :class="{warn: content.length > 100}">{{content.length}}/100</p>
+<!--    当数值大于100时属性cur运行-->
+    <p>
+        <button :disabled="content.length > 100" @click="">发布</button>
+<!--        当大于字数大于100时按键为禁用-->
+        <button :disabled="content.length <= 0" @click="clear">清空</button>
+<!--        当大于字数小于等于0时按键为禁用-->
+    </p>
+</div>
+<script>
+    var vue = new Vue({
+        el: '#app',
+        data:{
+            content:''
+        },
+        methods:{
+            //清空文本输入框的内容
+            clear(){
+                this.content = ''
+            },
+        }
+    })
+</script>
+</body>
+</html>
