@@ -1,0 +1,63 @@
+4.2 调色板
+	<style>
+        .pickers{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+
+    <div id="app" v-cloak>
+	    <p class="pickers" :style="{background:'rgb('+r+', '+g+', '+b+')'}"></p>
+	    <p>
+	        r:<input max="255" min="0" type="range" v-model="r"><input max="255" min="0" type="number" v-model="r"><br/>
+	        g:<input max="255" min="0" type="range" v-model="b"><input max="255" min="0" type="number" v-model="g"><br/>
+	        b:<input max="255" min="0" type="range" v-model="g"><input max="255" min="0" type="number" v-model="b"><br/>
+	    </p>
+	</div>
+
+	<script>
+	    var vue = new Vue({
+	        el: '#app',
+	        data:{
+	            r:100,
+	            g:200,
+	            b:123
+	        }
+	    })
+	</script>
+
+
+
+4.3 微博发布框
+	 <style>
+        .warn{
+            color: red;
+        }
+    </style>
+
+	<div id="app" v-cloak>
+	    <textarea v-model="content" cols="30" rows="10" placeholder="请输入你今天的心情。。。">{{}}</textarea>
+	    <p :class="{warn: content.length > 100}">{{content.length}}/100</p>
+			<!--    当数值大于100时属性cur运行-->
+	    <p>
+	        <button :disabled="content.length > 100" @click="">发布</button>
+			<!--        当大于字数大于100时按键为禁用-->
+	        <button :disabled="content.length <= 0" @click="clear">清空</button>
+			<!--        当大于字数小于等于0时按键为禁用-->
+    	</p>
+	</div>
+
+	<script>
+	    var vue = new Vue({
+	        el: '#app',
+	        data:{
+	            content:''
+	        },
+	        methods:{
+	            //清空文本输入框的内容
+	            clear(){
+	                this.content = ''
+	            }
+	        }
+	    })
+	</script>
