@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <script src="vue1.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 303px;
+            margin: 100px auto;
+            border: 1px solid #ddd;
+        }
+        .box .header{
+            height: 35px;
+            line-height: 35px;
+        }
+        .box .header span{
+            float: left;
+            width: 100px;
+            border-right: 1px solid #fff;
+            text-align: center;
+            background: #ddd;
+            color: white;
+        }
+        .box .header .cur{
+            background: #fff;
+            color: #ddd;
+        }
+        .box .content{
+            line-height: 30px;
+            font-size: 14px;
+            padding: 5px;
+        }
+        .box .content p{
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="app">
+    <div class="header">
+        <span :class="{cur: curState == index}" v-for="(item, index) in hTitle" @mouseenter="displayState(index)">{{item}}</span>
+        <div class="content" v-show="curState == 0">
+            <p>首页首页首页首页首页首页首页首页首页首页首页</p>
+            <p>首页首页首页首页首页首页首页首页首页首页首页</p>
+            <p>首页首页首页首页首页首页首页首页首页首页首页</p>
+        </div>
+        <div class="content" v-show="curState == 1">
+            <p>娱乐娱乐娱乐娱乐娱乐娱乐娱乐娱乐娱乐娱乐娱乐</p>
+            <p>娱乐娱乐娱乐娱乐娱乐娱乐娱乐娱乐娱乐娱乐娱乐</p>
+            <p>娱乐娱乐娱乐娱乐娱乐娱乐娱乐娱乐娱乐娱乐娱乐</p>
+        </div>
+        <div class="content" v-show="curState == 2">
+            <p>新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻</p>
+            <p>新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻</p>
+            <p>新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻新闻</p>
+        </div>
+    </div>
+</div>
+<script>
+    var vue = new Vue({
+        el: '#app',
+        data:{
+            hTitle:['首页', '娱乐', '新闻'],
+            showContent:true,
+            //curState和谁相等了就等于谁
+            curState:0
+        },
+        methods:{
+           displayState(index){
+               this.curState = index;
+           }
+        }
+    })
+</script>
+</body>
+</html>
