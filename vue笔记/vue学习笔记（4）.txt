@@ -1,0 +1,85 @@
+3.10 v-model
+	(1)v-model属性是使用在表单元素中，作用是实现表单和数据的双向绑定
+
+		姓名：<input type="text" v-model="val">
+
+	我们说过vue是mvvm框架，vue的核心之一就是双向绑定
+		<div id="app" v-cloak>
+		    <p>
+		        姓名：<input type="text" v-model="val">
+		        {{val}}
+		    </p>
+		</div>
+
+		<script>
+		    var vue = new Vue({
+		        el: '#app',
+		        data:{
+		            val:'姓名是张三'
+		        },
+		    })
+		</script>
+		我们说过vue是mvvm框架，vue的核心之一就是双向绑定。
+		（可以将值先初始化，我们输入什么他就会返回什么）
+
+	(2)小练习：调查表单
+		<div id="app" v-cloak>
+		    <h2>问卷调查</h2>
+		    <p>
+		        姓名：<input type="text" v-model="name">
+		    </p>
+		    <p>
+		        性别：
+		        <input type="radio" name="sex" value="男" v-model="sex">男
+		        <input type="radio" name="sex" value="女" v-model="sex">女
+		    </p>
+		    <p>
+		        爱好：
+		        <input type="checkbox" name="hobby" value="篮球" v-model="hobby">篮球
+		        <input type="checkbox" name="hobby" value="乒乓球" v-model="hobby">乒乓球
+		        <input type="checkbox" name="hobby" value="羽毛球" v-model="hobby">羽毛球
+		        <input type="checkbox" name="hobby" value="足球" v-model="hobby">足球
+		    </p>
+		    <p>
+		        籍贯：
+		        <select name="native" v-model="native">
+		            <option value="河北">河北</option>
+		            <option value="湖北">湖北</option>
+		            <option value="河南">河南</option>
+		            <option value="湖南">湖南</option>
+		            <option value="北京">北京</option>
+		        </select>
+		    </p>
+		    <p>
+		        您填写的表单</br>
+		        姓名是：{{name}}</br>
+		        性别是：{{sex}}</br>
+		        爱好是：{{hobby}}</br>
+		        籍贯是：{{native}}
+		    </p>
+		    <input type="submit" @click="submit" value="提交">
+		</div>
+		<script>
+		    var vue = new Vue({
+		        el: '#app',
+		        data:{
+		            name:'',
+		            sex:'男',
+		            hobby:[],
+		            native:'河北'
+
+		        },
+		        methods:{
+	            	ubmit() {
+			        //汇总信息提交给后端
+			        let obj = {
+			        	name: this.name,
+			            sex: this.sex,
+			            hobby: this.hobby,
+			            native: this.native
+			            }
+			        console.log(obj)
+			        }
+        		}
+		    })
+		</script>
