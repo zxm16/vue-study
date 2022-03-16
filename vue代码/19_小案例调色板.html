@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>调色板</title>
+    <script src="vue1.js"></script>
+    <style>
+        .pickers{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="app" v-cloak>
+    <p class="pickers" :style="{background:'rgb('+r+', '+g+', '+b+')'}"></p>
+    <p>
+        r:<input max="255" min="0" type="range" v-model="r"><input max="255" min="0" type="number" v-model="r"><br/>
+        g:<input max="255" min="0" type="range" v-model="b"><input max="255" min="0" type="number" v-model="g"><br/>
+        b:<input max="255" min="0" type="range" v-model="g"><input max="255" min="0" type="number" v-model="b"><br/>
+    </p>
+</div>
+<script>
+    var vue = new Vue({
+        el: '#app',
+        data:{
+            r:100,
+            g:200,
+            b:123
+        }
+    })
+</script>
+</body>
+</html>
