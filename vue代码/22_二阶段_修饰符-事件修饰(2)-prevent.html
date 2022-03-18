@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue1.js"></script>
+</head>
+<body>
+<div id="app">
+    <a href="http://www.baidu.com" @click.prevent="alertDialog">点击跳转百度</a>
+</div>
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+
+        },
+        methods:{
+            alertDialog(){
+                alert('我是超级链接')
+            }
+        }
+    })
+</script>
+</body>
+</html>
