@@ -1,0 +1,111 @@
+事件修饰符
+一、修饰符
+	修饰符是vue功能的拓展，拓展是对vue事件或者系统操作等等
+
+	1.1事件修饰符
+		看下面的案例：如果我点击了inner其实相当于点击了center和outer，此时如果都绑定监听那势必都会触发
+		<style>
+	        .outer{
+	            width: 180px;
+	            height: 180px;
+	            background: gold;
+	            margin: 100px auto;
+	            padding: 30px;
+	            border-radius: 50%;
+	        }
+	        .center{
+	            width: 130px;
+	            height: 130px;
+	            background: pink;
+	            padding: 30px;
+	            border-radius: 50%;
+	        }
+	        .inner{
+	            width: 130px;
+	            height: 130px;
+	            background: cadetblue;
+	            border-radius: 50%;
+	        }
+   		</style>
+
+   		<div id="app">
+		    <div class="outer" @click="outer">
+		        <div class="center" @click="center">
+		            <div class="inner" @click="inner">
+		            </div>
+		        </div>
+		    </div>
+		</div>
+
+		<script>
+		    var vue = new Vue({
+		        el:"#app",
+		        data:{
+
+		        },
+		        methods:{
+		            outer(){
+		                alert("外层")
+		            },
+		            center(){
+		                alert("中层")
+		            },
+		            inner(){
+		                alert("内层")
+		            },
+		        }
+		    })
+		</script>
+
+		我们现在想阻止这种事件的冒泡，通过两种方法：
+		（1）stop修饰符（常用的方法）
+			  <div class="inner" @click.stop="inner">
+			  1.通过上面的案例可以知道在事件后加.stop可以阻止事件的冒泡
+			  2.其作用类似原生JavaScript的event.stopPropagation()方法
+
+		（2）.self修饰符
+			<div class="outer" @click.self="outer">
+        		<div class="center" @click.self="center">
+            1.self修饰符不会阻止冒泡发生，不接受冒泡上来的事件
+            2.self修饰符相当于在冒泡发生时跳过我，如同continue一样（即跳过）
+
+        （3） .prevent
+        	1.如果一个超级链接，既有链接，又有事件，此时点击超级链接后会发生什么呢？
+        		<a href="http://www.baidu.com" @click="alertDialog">点击跳转百度</a>
+        		答案是先会执行事件的内容，然后会执行a默认的跳转事件
+        	2.如果我们不需要a标签跳转到百度，执行完事件监听后就停止，通过.prevent修饰符来阻止
+        		<a href="http://www.baidu.com" @click.prevent="alertDialog">点击跳转百度</a>
+        		和.stop修饰符一样其都有原生的JavaScript的方法，其作用类似于JavaScript的event.preventDefault()方法一样
+        （4）capture修饰符
+        	1.其对捕获机制的监听，vue的事件监听，默认都是获取冒泡阶段的，所以使用capture去监听捕获阶段的事件
+        	<div class="outer" @click.capture="outer">
+		        <div class="center" @click.capture="center">
+		            <div class="inner" @click="inner">
+		            </div>
+		        </div>
+    		</div>
+    	（5）once修饰符
+    			once修饰符的作用就是使事件只触发一次
+
+    			<div id="app">
+				    <p>{{a}}</p>
+				    <button @click.once="add">按我加一</button>
+				</div>
+
+				<script>
+				    var vue = new Vue({
+				        el:"#app",
+				        data:{
+				          a:2
+				        },
+				        methods:{
+				            add(){
+				               this.a++
+				                console.log(this.a)
+				            }
+				        }
+				    })
+				</script>
+				我们可以看到其值和视图都不会增加
+
+
