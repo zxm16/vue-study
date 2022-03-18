@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue1.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{a}}</p>
+    <button @click.once="add">按我加一</button>
+</div>
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+          a:2
+        },
+        methods:{
+            add(){
+               this.a++
+                console.log(this.a)
+            }
+        }
+    })
+</script>
+</body>
+</html>
