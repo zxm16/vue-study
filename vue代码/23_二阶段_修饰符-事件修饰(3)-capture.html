@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue1.js"></script>
+    <style>
+        .outer{
+            width: 180px;
+            height: 180px;
+            background: gold;
+            margin: 100px auto;
+            padding: 30px;
+            border-radius: 50%;
+        }
+        .center{
+            width: 130px;
+            height: 130px;
+            background: pink;
+            padding: 30px;
+            border-radius: 50%;
+        }
+        .inner{
+            width: 130px;
+            height: 130px;
+            background: cadetblue;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="outer" @click="outer">
+        <div class="center" @click.capture="center">
+            <div class="inner" @click="inner">
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+
+        },
+        methods:{
+            outer(){
+                alert("外层")
+            },
+            center(){
+                alert("中层")
+            },
+            inner(){
+                alert("内层")
+            },
+        }
+    })
+</script>
+</body>
+</html>
