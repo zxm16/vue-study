@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue1.js"></script>
+</head>
+<body>
+<div id="app" v-cloak>
+   <p>{{a}}</p>
+    <button @keydown.space="add">按我加一</button>
+</div>
+<script>
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            a:5
+        },
+        methods:{
+           add(){
+               this.a++
+            }
+        }
+    })
+</script>
+</body>
+</html>
